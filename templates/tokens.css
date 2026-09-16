@@ -1,0 +1,63 @@
+/* Design tokens.
+   Every value the design uses lives here. A page that needs a number that is
+   not in this file is asking for a token, not a one-off value.
+
+   Names are roles, never appearances: --ink, not --black; --accent, not --blue.
+   A token named after a colour will one day be the wrong colour. */
+
+:root {
+  /* Ground and ink */
+  --paper: #ffffff;
+  --paper-2: #f7f7f5;          /* tinted ground for panels and tiles */
+  --ink: #101010;
+  --ink-70: rgba(16,16,16,.70); /* secondary text */
+  --ink-45: rgba(16,16,16,.45); /* labels, captions */
+  --line: rgba(16,16,16,.12);   /* hairlines and field borders */
+
+  /* One accent, and the states derived from it */
+  --accent: #3e5464;
+  --accent-ink: #2b3d49;        /* accent on light, for text: check contrast */
+  --accent-wash: rgba(62,84,100,.08);
+
+  /* Feedback */
+  --ok: #1d7a4f;
+  --warn: #8a6100;
+  --danger: #a3231f;
+
+  /* Type: one voice face, one workhorse */
+  --serif: "<display face>", Georgia, serif;
+  --sans: "<text face>", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  /* Fluid scale. Check the longest real title at 320 and at 1920. */
+  --step--1: clamp(.78rem, .76rem + .1vw, .84rem);
+  --step-0:  clamp(.95rem, .92rem + .15vw, 1.05rem);
+  --step-1:  clamp(1.15rem, 1.05rem + .4vw, 1.4rem);
+  --step-2:  clamp(1.4rem, 1.2rem + .9vw, 2rem);
+  --step-3:  clamp(1.8rem, 1.4rem + 1.8vw, 3rem);
+  --step-4:  clamp(2.2rem, 1.5rem + 3vw, 4.2rem);
+
+  --lh-tight: 1.1;
+  --lh-text: 1.55;
+  --measure: 65ch;              /* body text line length */
+
+  /* Spacing: one scale, everything comes from it */
+  --s-1: .25rem; --s-2: .5rem; --s-3: .75rem; --s-4: 1rem;
+  --s-5: 1.5rem; --s-6: 2rem;  --s-7: 3rem;   --s-8: 4.5rem;
+
+  /* The page frame */
+  --max: 1360px;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --stack: clamp(3rem, 6vw, 5.5rem);   /* rhythm between sections */
+
+  /* Motion: two durations, one curve */
+  --fast: .18s;
+  --slow: .6s;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --radius: 0;                  /* square by default; change once, here */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Decide this deliberately and record the decision in the blueprint. */
+  :root { --fast: .001s; --slow: .001s; }
+}

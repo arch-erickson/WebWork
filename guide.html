@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebWork — how to set a website up properly</title>
+<meta name="description" content="The order of work for building a website with an AI agent: ask, write it down, ground the project, design outward, make it real.">
+<style>
+  :root{
+    color-scheme: light;
+    --paper:#fff; --paper-2:#f7f7f5; --ink:#111417; --ink-70:rgba(17,20,23,.72);
+    --ink-45:rgba(17,20,23,.48); --line:rgba(17,20,23,.13);
+    --accent:#3e5464; --accent-ink:#2c3c47; --accent-wash:#eef2f5;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --mono:ui-monospace,"Cascadia Code",Consolas,monospace;
+    --max:1080px; --gutter:clamp(1.15rem,4vw,3rem);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+  header.doc{padding-block:clamp(2.5rem,7vw,5rem) clamp(1.5rem,4vw,2.5rem)}
+  .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5.5vw,3.5rem);line-height:1.08;margin:.5rem 0 .8rem;letter-spacing:-.01em}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15;margin:0 0 .6rem}
+  h3{font-size:.95rem;font-weight:600;margin:1.6rem 0 .4rem}
+  p{margin:0 0 .9rem;max-width:68ch;color:var(--ink-70)}
+  p.lede{font-size:clamp(1rem,1.6vw,1.15rem);color:var(--ink-70);max-width:62ch}
+  section{border-top:1px solid var(--line);padding-block:clamp(2rem,5vw,3.4rem)}
+  section > .n{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em}
+  code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:.1em .35em;border-radius:3px}
+  ul,ol{margin:0 0 1rem;padding-left:1.15rem;max-width:68ch;color:var(--ink-70)}
+  li{margin:.3rem 0}
+  strong{color:var(--ink);font-weight:600}
+  .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:1.2rem 0}
+  .card{border:1px solid var(--line);padding:1rem 1.1rem;background:var(--paper)}
+  .card h3{margin:0 0 .3rem}
+  .card p{font-size:.88rem;margin:0}
+  table{border-collapse:collapse;width:100%;font-size:.88rem;margin:1rem 0}
+  th,td{text-align:left;vertical-align:top;padding:.55rem .7rem;border-bottom:1px solid var(--line)}
+  th{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);font-weight:600}
+  td:first-child{color:var(--ink);font-weight:500;white-space:nowrap}
+  .tbl{overflow-x:auto}
+  .rule{background:var(--accent-wash);border-left:3px solid var(--accent);padding:1rem 1.15rem;margin:1.2rem 0;max-width:72ch}
+  .rule p{margin:0;color:var(--ink)}
+  figure{margin:1.4rem 0;overflow-x:auto}
+  svg.flow{display:block;width:100%;height:auto;min-width:720px}
+  figcaption{font-size:.78rem;color:var(--ink-45);margin-top:.5rem}
+  footer{border-top:1px solid var(--line);padding-block:2rem 4rem;font-size:.82rem;color:var(--ink-45)}
+  a{color:var(--accent-ink)}
+  @media (max-width:620px){ td:first-child{white-space:normal} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="doc">
+    <span class="eyebrow">WebWork</span>
+    <h1>How to set a website up properly, from the first question</h1>
+    <p class="lede">The stack changes with every project. The order does not. This is the sequence that keeps a site coherent: what to decide before anything is built, what to write down, what to build once, and how to check that any of it is true.</p>
+  </header>
+
+  <section>
+    <span class="n">01</span>
+    <h2>Five phases</h2>
+    <figure>
+      <svg class="flow" viewBox="0 0 1000 300" role="img" aria-label="Five phases: ask, write it down, ground the project, design outward, make it real, each feeding the next.">
+        <rect width="1000" height="300" fill="#fff"/>
+        <g font-family="Inter, system-ui, sans-serif">
+          <g>
+            <rect x="12" y="70" width="176" height="120" rx="8" fill="#eef2f5" stroke="#3e5464"/>
+            <text x="30" y="100" font-size="12" font-weight="700" fill="#2c3c47">1 · ASK</text>
+            <text x="30" y="126" font-size="13" fill="#111417">Intake interview</text>
+            <text x="30" y="148" font-size="11.5" fill="#55606a">Shape, audience,</text>
+            <text x="30" y="165" font-size="11.5" fill="#55606a">content, money,</text>
+            <text x="30" y="182" font-size="11.5" fill="#55606a">accounts, media</text>
+          </g>
+          <g>
+            <rect x="212" y="70" width="176" height="120" rx="8" fill="#fff" stroke="#111417"/>
+            <text x="230" y="100" font-size="12" font-weight="700" fill="#2c3c47">2 · WRITE IT DOWN</text>
+            <text x="230" y="126" font-size="13" fill="#111417">The blueprint</text>
+            <text x="230" y="148" font-size="11.5" fill="#55606a">Decisions numbered,</text>
+            <text x="230" y="165" font-size="11.5" fill="#55606a">risks ranked,</text>
+            <text x="230" y="182" font-size="11.5" fill="#55606a">unknowns owned</text>
+          </g>
+          <g>
+            <rect x="412" y="70" width="176" height="120" rx="8" fill="#fff" stroke="#111417"/>
+            <text x="430" y="100" font-size="12" font-weight="700" fill="#2c3c47">3 · GROUND</text>
+            <text x="430" y="126" font-size="13" fill="#111417">Foundations</text>
+            <text x="430" y="148" font-size="11.5" fill="#55606a">Repo, rules file,</text>
+            <text x="430" y="165" font-size="11.5" fill="#55606a">harness, empty</text>
+            <text x="430" y="182" font-size="11.5" fill="#55606a">design system</text>
+          </g>
+          <g>
+            <rect x="612" y="70" width="176" height="120" rx="8" fill="#fff" stroke="#111417"/>
+            <text x="630" y="100" font-size="12" font-weight="700" fill="#2c3c47">4 · DESIGN</text>
+            <text x="630" y="126" font-size="13" fill="#111417">Outward from one page</text>
+            <text x="630" y="148" font-size="11.5" fill="#55606a">Tokens, one page,</text>
+            <text x="630" y="165" font-size="11.5" fill="#55606a">then the components</text>
+            <text x="630" y="182" font-size="11.5" fill="#55606a">it needed</text>
+          </g>
+          <g>
+            <rect x="812" y="70" width="176" height="120" rx="8" fill="#eef2f5" stroke="#3e5464"/>
+            <text x="830" y="100" font-size="12" font-weight="700" fill="#2c3c47">5 · MAKE IT REAL</text>
+            <text x="830" y="126" font-size="13" fill="#111417">Data, deploy, gates</text>
+            <text x="830" y="148" font-size="11.5" fill="#55606a">Content model,</text>
+            <text x="830" y="165" font-size="11.5" fill="#55606a">media, accounts,</text>
+            <text x="830" y="182" font-size="11.5" fill="#55606a">launch</text>
+          </g>
+          <g stroke="#3e5464" stroke-width="1.6" fill="none">
+            <path d="M188 130 h20" marker-end="url(#a)"/>
+            <path d="M388 130 h20" marker-end="url(#a)"/>
+            <path d="M588 130 h20" marker-end="url(#a)"/>
+            <path d="M788 130 h20" marker-end="url(#a)"/>
+          </g>
+          <path d="M900 190 v40 H100 v-40" stroke="#3e5464" stroke-width="1.4" fill="none" stroke-dasharray="5 5" marker-end="url(#a)"/>
+          <text x="500" y="250" font-size="11.5" fill="#55606a" text-anchor="middle">every later phase amends the blueprint, in the same commit as the change</text>
+        </g>
+        <defs>
+          <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M1 1 L8 5 L1 9" fill="none" stroke="#3e5464" stroke-width="1.6"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>Nothing is installed before phase 1 is answered, and nothing is designed before phase 2 is written.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <span class="n">02</span>
+    <h2>Ask first. It changes everything downstream.</h2>
+    <p>Twenty minutes of questions decides the stack, the content model, whether accounts exist at all, and how much of the budget goes to pictures. Ask in groups, and write the answers in the person's own words.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Group</th><th>What the answers decide</th></tr></thead>
+        <tbody>
+          <tr><td>What this is</td><td>The home page's job, the primary action, what must not get worse</td></tr>
+          <tr><td>Who reads it</td><td>Which width you design first, hosting region, language, accessibility floor</td></tr>
+          <tr><td>The content</td><td>Static files, a generator, or a database. Whether an editor is needed</td></tr>
+          <tr><td>Money</td><td>Whether checkout exists. Whether a price may ever reach a public page</td></tr>
+          <tr><td>Accounts</td><td>The single largest scope fork in the project</td></tr>
+          <tr><td>Media</td><td>Shot list, pipeline, licensing, and whether 3D is a second project</td></tr>
+          <tr><td>Constraints</td><td>Hosting shortlist, what gets cut, which launch blockers start now</td></tr>
+          <tr><td>After launch</td><td>How much can stay as code, and what earns an interface</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Then name the shape: portfolio, editorial, catalogue with prices on request, shop, marketing, application, immersive. The shape sets every default that follows, and most projects are one shape plus a piece of another. Say which one wins when they disagree.</p>
+  </section>
+
+  <section>
+    <span class="n">03</span>
+    <h2>The two rules that carry most of the value</h2>
+    <div class="rule"><p><strong>Anything that appears twice is built once.</strong> One definition, in one module, called by every screen. A variation is a parameter, never a second copy. The expensive bugs are never clever: they are the same element written three slightly different ways, in three files, so a fix lands in only one of them.</p></div>
+    <div class="rule"><p><strong>Check the built page, not the intention.</strong> Screenshots at three widths, contrast measured, overflow measured, console clean. An agent that cannot see the page it built will describe something that is not there, confidently.</p></div>
+  </section>
+
+  <section>
+    <span class="n">04</span>
+    <h2>Design outward from one page</h2>
+    <ol>
+      <li><strong>Type scale</strong>, proven against the longest real title at 320 and 1920.</li>
+      <li><strong>Colour</strong>: ink, paper, one accent, one muted ink. Contrast measured, not judged.</li>
+      <li><strong>Spacing and the frame</strong>: one scale, one maximum width, one section rhythm.</li>
+      <li><strong>One page, end to end</strong>, with real content. Not the home page: the page a visitor came for.</li>
+      <li><strong>Extract the components</strong> that page needed. The second time you need something, not the first.</li>
+      <li><strong>Motion last</strong>: two durations, one curve, and a reason for anything that loops.</li>
+    </ol>
+    <p>A component library designed in the abstract is a guess. The same library extracted from a finished page is a record of what was actually needed.</p>
+  </section>
+
+  <section>
+    <span class="n">05</span>
+    <h2>What adapts per project</h2>
+    <div class="grid">
+      <div class="card"><h3>Hosting</h3><p>Static host, edge platform, node host or managed platform. Decided by one question: does any page depend on who is asking?</p></div>
+      <div class="card"><h3>Data</h3><p>Files in the repository, a generator over a spreadsheet, edge SQL, managed Postgres, or a CMS. Start from needing none.</p></div>
+      <div class="card"><h3>Accounts</h3><p>None, an edge rule for staff, social providers, or email and phone with a password. Each brings its own recovery and linking rules.</p></div>
+      <div class="card"><h3>Media</h3><p>In the repository, object storage with transforms, or embeds. A shot list if items are photographed the same way.</p></div>
+      <div class="card"><h3>3D</h3><p>Only when a photograph cannot do the job. Budgets and a fallback before any modelling.</p></div>
+      <div class="card"><h3>Generated imagery</h3><p>The generator may improve a photograph. It may never invent the product. Write the fidelity contract first.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="n">06</span>
+    <h2>Gates, before anything is called done</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Gate</th><th>The measure</th></tr></thead>
+        <tbody>
+          <tr><td>Layout</td><td>No horizontal overflow at six widths; nothing important behind a fixed header</td></tr>
+          <tr><td>Type</td><td>45 to 75 characters a line for body text</td></tr>
+          <tr><td>Colour</td><td>4.5:1 for text, 3:1 for large text and control edges</td></tr>
+          <tr><td>Keyboard</td><td>Every control reachable, in order, with a visible focus ring</td></tr>
+          <tr><td>Weight</td><td>First screen inside a budget written in the blueprint</td></tr>
+          <tr><td>Images</td><td>Dimensions or a ratio on every one; alt text that says something</td></tr>
+          <tr><td>Console</td><td>No errors, no failed requests, no third party the reader did not ask for</td></tr>
+          <tr><td>Copy</td><td>Nothing addressed to the designer, nothing left as placeholder</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Run <code>node scripts/verify.mjs &lt;page&gt;</code> after every visual change. It reports each of these and writes screenshots at three sizes.</p>
+  </section>
+
+  <section>
+    <span class="n">07</span>
+    <h2>Starting</h2>
+    <p>In an empty project folder, with the kit beside it:</p>
+    <ul>
+      <li><code>node WebWork/scripts/new-project.mjs --name "Acme" --shape catalogue --into .</code></li>
+      <li>Answer the intake into <code>docs/intake.md</code>.</li>
+      <li>Write <code>docs/blueprint.md</code> from those answers.</li>
+      <li>Set the tokens, build one page, extract the components.</li>
+    </ul>
+    <p>Or simply open the folder with an agent and say: read <code>WebWork/START.md</code> and take me through it.</p>
+  </section>
+
+  <footer>
+    WebWork · the order of work, not a template · <a href="https://github.com/arch-erickson/WebWork">github.com/arch-erickson/WebWork</a>
+  </footer>
+</div>
+
+</body>
+</html>
