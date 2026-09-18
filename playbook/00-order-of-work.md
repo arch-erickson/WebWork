@@ -48,6 +48,7 @@ checks are cheap while the site is small and brutal once it is not.
 | 8 | Content model | Sample data in one file, switch empties it | `playbook/05-content-model.md` |
 | 9 | Media | Naming, sizes, framing rule, pipeline | `playbook/06-media.md` |
 | 10 | Data and accounts | Only if the intake called for them | `playbook/07-data-and-accounts.md` |
+| 10b | Messages, languages, documents | Every message previewed in every language; nothing untranslated | `playbook/07b-messages-and-documents.md` |
 | 11 | Deploy | Two environments, cache busting, rollback | `playbook/08-build-and-deploy.md` |
 | 12 | Gates | Contrast, keyboard, overflow, weight, console clean | `playbook/09-quality-gates.md` |
 | 13 | Launch | Domain, analytics, backups, handover | `playbook/10-launch.md` |

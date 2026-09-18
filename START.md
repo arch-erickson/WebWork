@@ -43,7 +43,8 @@ Follow `playbook/01-foundations.md`:
 
 - repository, `.gitignore`, branch rules
 - `CLAUDE.md` from `templates/CLAUDE.md`, edited to this project
-- `COORDINATION.md` if more than one agent or person will write code
+- `COORDINATION.md` if more than one agent or person will write code, with a
+  named lead (`playbook/11-working-with-agents.md`)
 - the verification harness from `scripts/verify.mjs`, running before any design
   exists, so the first screenshot is the baseline
 - the empty design system: token file, component module, build script
@@ -72,6 +73,7 @@ In this order, skipping anything the intake ruled out:
 | Content model and sample data | `playbook/05-content-model.md` |
 | Media pipeline | `playbook/06-media.md` |
 | Data and accounts | `playbook/07-data-and-accounts.md` |
+| Messages, languages, printable documents | `playbook/07b-messages-and-documents.md` |
 | Build and deploy, two environments | `playbook/08-build-and-deploy.md` |
 | Quality gates | `playbook/09-quality-gates.md` |
 | Launch | `playbook/10-launch.md` |

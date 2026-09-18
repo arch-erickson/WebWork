@@ -8,11 +8,20 @@ Tick these, do not skim them.
 - [ ] A second administrator exists on every critical account
 - [ ] Secrets stored in the platform, not in the repository, not in chat
 
+## Keys and domain
+- [ ] Every secret created by the owner, stored in the platform, listed by name in a handoff
+- [ ] The site address changed in its one setting; sign-in callbacks, bot checks, access rules and payment callbacks updated
+- [ ] Email DNS records in place and a real message received in two mail apps
+- [ ] The preview address redirects to the domain, and the preview is no longer indexed
+- [ ] The payment provider tested in its sandbox, including a lost or late reply
+
 ## Correctness
 - [ ] Every page passes the gates in `playbook/09-quality-gates.md`
 - [ ] The primary action completed end to end on the live site
 - [ ] Forms reach a real inbox that someone reads
 - [ ] 404 and 500 pages exist and offer a way back
+- [ ] Every message previewed in every language; no untranslated sentence left
+- [ ] Receipts and other printable documents printed once on real paper
 - [ ] Redirects from every old URL that matters
 
 ## Safety

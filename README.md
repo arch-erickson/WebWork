@@ -29,11 +29,12 @@ until you have answered the questions that decide it.
 | --- | --- |
 | `START.md` | The script the agent follows, phase by phase |
 | `intake/` | The questions to ask before anything is built, and what each answer changes |
-| `playbook/` | The ten guides, in the order they are needed |
+| `playbook/` | The guides, in the order they are needed, plus messages and documents (`07b`) and working with several agents (`11`) |
 | `stacks/` | Decision matrices: hosting, data, accounts, media, 3D |
 | `templates/` | Blueprint skeleton, coordination file, handoff format, design tokens, shared components |
 | `scripts/` | Scaffolding and the verification harness |
 | `checklists/` | Short lists for launch, accessibility and content |
+| `image-generation/` | Producing and checking generated or retouched images before they reach a site |
 | `guide.html` | The same workflow as one page you can read or hand to someone |
 
 ## The five phases
@@ -66,3 +67,7 @@ until you have answered the questions that decide it.
 - **Sample data lives in one file** with a switch that empties it.
 - **The interface speaks to the reader**, never to the designer. No notes to
   self in visible text.
+- **The owner holds the keys.** Accounts and secrets are created by the owner;
+  the agent names what is needed. Nothing secret goes in chat or the repository.
+- **With more than one agent, one of them leads**, and everything is pushed,
+  logged and handed off in the repository. `playbook/11-working-with-agents.md`

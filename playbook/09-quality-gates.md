@@ -51,3 +51,25 @@ and `scripts/verify.mjs` does most of them.
 Run the harness after every visual change, not at the end of the week. It takes
 seconds and it is the difference between a page that works and a page that was
 described as working.
+
+## Automate them in CI
+
+Every push, whoever made it:
+
+1. **Build, then check that the committed output matches a fresh build.** It
+   catches generated files edited by hand and sources committed without
+   their output.
+2. **Browser checks** for the flows that matter: search, forms, payment
+   states, account actions, languages.
+3. **An accessibility audit** (axe) on every page at desktop and phone width,
+   failing on any rule, whatever its weight.
+4. **Screenshot comparison** against approved pictures. Fonts render
+   differently per operating system, so keep one baseline per platform and
+   commit the CI runner's.
+5. **A performance audit** (Lighthouse) on the key pages, run by hand before
+   a release.
+
+**Wait for the page to be ready before checking it.** A loading skeleton hides
+labels on purpose; an audit that runs during it reports buttons without names.
+Wait for the loading state to lift and for images to decode, then check. Slow
+CI machines expose this long after it passes on a laptop.

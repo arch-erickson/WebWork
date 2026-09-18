@@ -42,6 +42,10 @@ Environments, secrets per environment, the pipeline, migrations, rollback.
 ## 9. Feature matrix
 Every feature: exists, partial, missing, or post-launch, with the work needed.
 
+## 9b. Site map
+Every page as a card with arrows between connected pages, and under each page
+what the backend does and what remains. See `playbook/02-blueprint.md`.
+
 ## 10. Risks
 By severity. Each with what happens if ignored, the fix, the effort, and when
 it must be done.

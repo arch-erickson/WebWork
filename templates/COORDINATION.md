@@ -3,6 +3,10 @@
 <N> agents work in this repository at the same time. They cannot message each
 other. This file is the channel, and git is the sync point.
 
+**Who decides.** <Lead> is the lead. Where the agents disagree, the lead decides
+and records it in the log. When another agent's work is incomplete or wrong,
+the lead corrects it and logs the fix; ownership of paths does not change.
+
 **Read the claims table before editing, and commit often.** An uncommitted
 change is invisible to everyone else, so work sitting in a working tree for an
 hour is work someone may be about to overwrite.
@@ -31,7 +35,11 @@ Shared, so announce in the log before touching: <list>.
 3. **Generated files are generated.** Edit the source, never the output.
 4. **Stage only your own files.** A wide `git add` sweeps up work in progress
    that is not yours.
-5. **Pull with rebase before pushing.**
+5. **Pull with rebase, then push.** A commit that is not pushed is as invisible
+   as one that was never made.
+6. **Log every change**, one entry each, with what the others must do.
+7. **Leave nothing that breaks the others.** Unfinished work that fails the
+   type check or the build is parked outside the repository until it passes.
 
 ---
 

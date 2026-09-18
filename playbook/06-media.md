@@ -69,3 +69,30 @@ regenerate an approved asset silently: add a version.
 - every image has dimensions or a ratio
 - alt text present, and not the file name
 - total weight of the first screen under the budget in `playbook/09-quality-gates.md`
+
+## Lighter pictures without a paid service
+
+On an image-led site the pictures are most of the weight. A build step that
+has cut a home page from 25 MB to under 1 MB:
+
+- Write AVIF and WebP copies at a few fixed widths (for example 480, 960,
+  1440, 1920) ahead of time, only for files above a size threshold, with a
+  manifest of what exists.
+- A single pass over every generated page adds the sources and `srcset`,
+  chooses `sizes` from where the picture sits, lazy-loads everything after the
+  first picture, gives the first one `fetchpriority="high"`, and preloads it
+  from the page head.
+- Store published copies under content-addressed keys (a hash of the file) so
+  a cached copy is never wrong, and keep the originals private.
+- Emails still get JPEG or PNG.
+
+Prebuilt copies cost nothing per view. A transform service is worth it only
+when uploads arrive after launch at sizes you did not plan.
+
+## Cut-outs and masks
+
+Segmentation models (SAM and its successors) make clean masks of the subject
+for effects and cut-outs. Keep the model and its environment outside the
+project repository, as a shared tool, and commit only the masks and a record of
+which picture each came from. The build reads the masks; it never runs the
+model.

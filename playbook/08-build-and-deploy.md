@@ -51,3 +51,29 @@ enough to be a known hazard.
 - the time to first render on a mid-range phone profile
 - errors in the console, which should be zero
 - the harness screenshots, compared to the last run
+
+## Before the domain exists
+
+The domain is often bought late. Do not wait for it:
+
+- Build on the platform's free address (for example `name.account.workers.dev`),
+  closed behind an access rule and marked noindex.
+- **Keep the site address in one setting** (`APP_ORIGIN` or similar) that every
+  link, sign-in redirect, email link and payment callback reads. Moving to the
+  real domain is then one value and a redeploy.
+- Queue and preview emails instead of sending them: reliable sending needs DNS
+  records on a domain you control.
+- Write the move as a checklist in a handoff now: attach the domain, change the
+  one setting, update sign-in callbacks, bot-challenge hostnames, access
+  rules and payment callbacks, add the email DNS records, redirect the old
+  address.
+
+A static preview of the design (GitHub Pages or similar) can keep running
+alongside, unchanged, until the application replaces it.
+
+## Who holds the keys
+
+The owner creates every account and every secret. The agent writes down, in a
+handoff, the exact name of each secret and variable, where it is used, and
+whether it is secret. A secret pasted into chat, a commit or a prompt has to be
+rotated.

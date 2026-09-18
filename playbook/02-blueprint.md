@@ -70,6 +70,26 @@ An unknown with no owner is a decision nobody is making.
 - If the blueprint is published for reading (a page, a PDF), regenerate it from
   the source file rather than editing the published copy.
 
+## The site map with a status on every page
+
+The most useful single picture in a blueprint, once there is more than a
+handful of pages: every page as a card, spaced apart, with arrows for the way
+a visitor (or the staff) moves from one to the next. On each card:
+
+- the page's name and file or route
+- chips: design built, ported to the production app or not, and the state of
+  the server work behind it (live, built but not deployed, partly built,
+  missing, or none needed)
+- two short lists: **backend built** and **remaining**
+
+Leave out the links every page has (menu, search, footer), or the arrows turn
+into a web. Draw actions by the staff that reach a client page (a payment link
+sent, a note arriving in the inbox) as dashed arrows between the two areas.
+
+Drive it from one data list, not from hand-placed text, and update that list
+after every batch of work. Owners read this diagram to answer "how far along
+are we"; commits and handoffs do not answer that for them.
+
 ## Publishing it
 
 A long technical document is read more often when it is a page rather than a
