@@ -96,3 +96,23 @@ A long technical document is read more often when it is a page rather than a
 file. Keep the source in the repository, generate the readable version, and
 keep every diagram in the same visual language: white ground, one accent, real
 labels rather than decorative boxes.
+
+## One source, or it drifts
+
+A generated document that is published from more than one place stops matching
+its own sources, quietly. It happens like this: the page is generated from the
+repository and published; later someone edits the published page directly, or
+generates it from a second machine that has older sources. Now the live
+document and the sources disagree, and the next person to rebuild wipes out
+work nobody remembers doing.
+
+Two habits prevent it:
+
+- **Publish from one place only**, and say in the document itself where its
+  sources are. If a second person has to publish, they pull first.
+- **Read before you write.** Before republishing, fetch the live version and
+  compare. If it is ahead of you, merge onto it rather than over it: take the
+  live document as the base, reapply your changes, publish that.
+
+The same applies to any long-lived artefact outside the repository: a deck, a
+shared document, a diagram in a design tool.

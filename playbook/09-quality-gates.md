@@ -52,6 +52,30 @@ Run the harness after every visual change, not at the end of the week. It takes
 seconds and it is the difference between a page that works and a page that was
 described as working.
 
+## The build has to be reproducible
+
+The check below, "the committed output matches a fresh build", is the most
+useful gate in the harness and the easiest one to break. It compares what is
+in the repository against what the sources produce right now, so anything the
+build invents each time it runs makes it fail for no real reason, and people
+start ignoring it.
+
+Three things to keep out of generated files:
+
+- **The clock.** A sitemap stamped with today's date differs from the one
+  committed yesterday. Write dates that mean something: the date the content
+  changed, kept as a constant and moved by hand. Anything derived from the
+  commit does not work either, because committing the file changes it again.
+- **Hashes over the whole tree.** A cache-busting hash taken over a folder
+  changes when an untracked scratch file is sitting in it. Hash the files you
+  ship, listed explicitly.
+- **Machine differences.** Locale in date and number formatting, file order
+  from the filesystem, and line endings. Sort what you list; set the locale;
+  commit a `.gitattributes`.
+
+The test is simple: build twice and compare. If the two differ, the gate is
+worthless until you fix it.
+
 ## Automate them in CI
 
 Every push, whoever made it:

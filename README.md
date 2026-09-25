@@ -29,9 +29,9 @@ until you have answered the questions that decide it.
 | --- | --- |
 | `START.md` | The script the agent follows, phase by phase |
 | `intake/` | The questions to ask before anything is built, and what each answer changes |
-| `playbook/` | The guides, in the order they are needed, plus messages and documents (`07b`) and working with several agents (`11`) |
+| `playbook/` | The guides, in the order they are needed, plus messages and documents (`07b`), working with several agents (`11`), one definition across two surfaces (`12`) and reporting progress to the owner (`13`) |
 | `stacks/` | Decision matrices: hosting, data, accounts, media, 3D |
-| `templates/` | Blueprint skeleton, coordination file, handoff format, design tokens, shared components |
+| `templates/` | Blueprint skeleton, coordination file, handoff format, design tokens, shared components, handover checklist |
 | `scripts/` | Scaffolding and the verification harness |
 | `checklists/` | Short lists for launch, accessibility and content |
 | `image-generation/` | Producing and checking generated or retouched images before they reach a site |
