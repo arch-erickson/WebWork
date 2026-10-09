@@ -51,6 +51,8 @@ checks are cheap while the site is small and brutal once it is not.
 | 10b | Messages, languages, documents | Every message previewed in every language; nothing untranslated | `playbook/07b-messages-and-documents.md` |
 | 11 | Deploy | Two environments, cache busting, rollback | `playbook/08-build-and-deploy.md` |
 | 12 | Gates | Contrast, keyboard, overflow, weight, console clean | `playbook/09-quality-gates.md` |
+| 12b | Failures you cannot see | A check that fails only on the runner is made to name the culprit | `playbook/14-when-it-only-fails-on-the-runner.md` |
+| 12c | What the owner provides | A credential or a revocable grant, not a seat in their accounts | `playbook/15-ask-for-a-credential-not-access.md` |
 | 13 | Launch | Domain, analytics, backups, handover | `playbook/10-launch.md` |
 
 ## What to do when someone asks for a page out of order

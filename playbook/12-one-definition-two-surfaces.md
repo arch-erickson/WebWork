@@ -63,6 +63,36 @@ Two traps worth knowing:
   segment, not three. Translate it whole, at export time, and store the whole
   paragraph as the key.
 
+## Say what the product already says
+
+Before writing a client-facing sentence, search for it. The product has
+probably said it already, and that copy is translated.
+
+Porting two screens into a second surface needed about seventy sentences.
+Roughly fifty already existed. Every time a new phrasing was written instead of
+the existing one, it shipped untranslated and nobody noticed until a reader saw
+English on the Spanish page:
+
+- "Apartment, suite, or similar" where the product says "Apartment, building or
+  floor"
+- "Your account" where the page title is "Your Account", capital A, which is
+  the key the dictionary holds
+- A bare "Save" where "Save address" was already written and already
+  translated
+
+The dictionary is keyed by the English sentence, so a sentence that differs by
+one word or one capital letter is a different sentence, with no translation
+behind it. Near enough is not enough.
+
+Two habits make this cheap:
+
+- **Search the dictionary first.** One lookup is faster than writing a
+  translation afterwards, and much faster than finding the gap in review.
+- **When a heading can be data, let it be data.** The heading over an address
+  being edited is that address's own name. It needs no sentence at all, in any
+  language.
+
+
 ## What belongs in each place
 
 | Lives in the one definition | Lives in the surface |

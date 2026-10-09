@@ -76,6 +76,8 @@ In this order, skipping anything the intake ruled out:
 | Messages, languages, printable documents | `playbook/07b-messages-and-documents.md` |
 | Build and deploy, two environments | `playbook/08-build-and-deploy.md` |
 | Quality gates | `playbook/09-quality-gates.md` |
+| A check that fails only in CI | `playbook/14-when-it-only-fails-on-the-runner.md` |
+| What to ask the owner for | `playbook/15-ask-for-a-credential-not-access.md` |
 | Launch | `playbook/10-launch.md` |
 
 ## Phase 5 — Hand over

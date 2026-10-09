@@ -71,3 +71,11 @@ until you have answered the questions that decide it.
   the agent names what is needed. Nothing secret goes in chat or the repository.
 - **With more than one agent, one of them leads**, and everything is pushed,
   logged and handed off in the repository. `playbook/11-working-with-agents.md`
+- **A failure you cannot reproduce is a reporting problem first.** Make the
+  check name what did it, push, and read the answer, rather than reasoning from
+  the machine where it passes.
+  `playbook/14-when-it-only-fails-on-the-runner.md`
+- **Ask the owner for a credential, not for access.** Work out the smallest
+  thing that unblocks the work. It is nearly always a key or a grant they can
+  withdraw, not a seat beside them.
+  `playbook/15-ask-for-a-credential-not-access.md`
