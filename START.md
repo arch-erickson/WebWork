@@ -78,6 +78,7 @@ In this order, skipping anything the intake ruled out:
 | Quality gates | `playbook/09-quality-gates.md` |
 | A check that fails only in CI | `playbook/14-when-it-only-fails-on-the-runner.md` |
 | What to ask the owner for | `playbook/15-ask-for-a-credential-not-access.md` |
+| Drawing the blueprint's diagrams | `playbook/16-blueprint-diagrams.md`, kit in `diagrams/` |
 | Launch | `playbook/10-launch.md` |
 
 ## Phase 5 — Hand over

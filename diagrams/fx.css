@@ -1,0 +1,57 @@
+/* The diagram style, one hand for every blueprint.
+
+   Two halves: the board itself, and the viewer that lets a reader open one
+   full screen and move around it. Link this beside the page and give each
+   board a <div class="diagram"> to sit in.
+
+   The `--line` custom property is the only thing it asks of the page it
+   lands in. Set it, or replace it with a colour. */
+
+/* ---------- the board ---------- */
+.diagram{overflow-x:auto;background:#FFFFFF;border:1px solid var(--line);border-radius:8px;padding:10px;margin:.9rem 0 .4rem}
+.diagram svg{display:block;width:100%;height:auto}
+section.s{max-width:none}
+.shell{max-width:1720px}
+section.s .tbl{max-width:1320px}
+.grid2,.facts{max-width:1320px}
+.fx{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+.fx .ft{font-size:13px;font-weight:600;fill:#0F172A}
+.fx .fs{font-size:10.8px;fill:#475569}
+.fx .fg{font-size:10px;font-weight:600;letter-spacing:.02em}
+.fx .fp{font-size:15px;font-weight:700;letter-spacing:.01em}
+.fx .fc{font-size:12px;fill:#475569}
+.fx .fn{font-size:12px;fill:#334155}
+.fx .fh{font-size:18px;font-weight:700;fill:#0F172A}
+.fx .fhs{font-size:12.5px;fill:#64748B}
+.fx .fl{font-size:11.5px;font-weight:500;fill:#334155;paint-order:stroke;stroke:#FFFFFF;stroke-width:4px;stroke-linejoin:round}
+.fx .fnum{font-size:10px;font-weight:700;fill:#FFFFFF}
+.fx .falt{font-size:11.5px;font-weight:600;font-style:italic;fill:#475569}
+.fx .ftab{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace;font-size:13px;font-weight:600;fill:#0F172A}
+.fx .fcol{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace;font-size:11.5px;fill:#0F172A}
+.fx .ftype{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace;font-size:10.5px;fill:#64748B}
+.fx .fkey{font-size:8.5px;font-weight:700;letter-spacing:.03em}
+.fx .frel{font-size:10.5px;font-weight:500;fill:#334155}
+.pillkey{display:inline-block;font-size:.66rem;font-weight:600;padding:.08rem .55rem;border-radius:9px;border:1px solid;margin-right:.3rem;vertical-align:.08em}
+
+/* ---------- the viewer ---------- */
+.dg-bar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin:.9rem 0 -.5rem;font-size:.74rem;color:var(--ink-3)}
+.dg-btn{font:600 .72rem/1 var(--sans);letter-spacing:.02em;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:.45rem .7rem;cursor:pointer;display:inline-flex;align-items:center;gap:.35rem}
+.dg-btn:hover{background:var(--tile)}
+.dg-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fx .node{cursor:pointer}
+.fx.focus [data-from]{opacity:.1;transition:opacity .15s}
+.fx.focus .node{opacity:.28;transition:opacity .15s}
+.fx.focus [data-from].hot,.fx.focus .node.hot{opacity:1}
+.fx.focus path.hot{stroke-width:3.6}
+.fx.focus .node.sel > rect:nth-child(2){stroke:#0F172A;stroke-width:3}
+.dg-full{position:fixed;inset:0;z-index:1000;background:#fff;display:flex;flex-direction:column}
+.dg-full[hidden]{display:none}
+.dg-top{display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;padding-top:calc(.6rem + env(safe-area-inset-top,0px));border-bottom:1px solid var(--line);background:#fff;flex-wrap:wrap}
+.dg-top .dg-title{font:600 .82rem var(--sans);color:var(--ink);margin-right:auto}
+.dg-top .dg-pct{font:500 .74rem var(--mono);min-width:3.6rem;text-align:center;color:var(--ink-2)}
+.dg-top .dg-hint{font-size:.72rem;color:var(--ink-3)}
+.dg-stage{position:relative;flex:1;overflow:hidden;cursor:grab;touch-action:none;background:#F8FAFC}
+.dg-stage.drag{cursor:grabbing}
+.dg-stage svg{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none!important;min-width:0!important;background:#fff;box-shadow:0 8px 30px rgba(15,23,42,.08)}
+body.dg-lock{overflow:hidden}
+@media (max-width:620px){.dg-top .dg-hint{display:none}}

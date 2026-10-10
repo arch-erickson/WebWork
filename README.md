@@ -75,6 +75,9 @@ until you have answered the questions that decide it.
   check name what did it, push, and read the answer, rather than reasoning from
   the machine where it passes.
   `playbook/14-when-it-only-fails-on-the-runner.md`
+- **Every blueprint draws in the same hand.** One diagram kit, built in code
+  so a board can be rebuilt when the system moves. `diagrams/` and
+  `playbook/16-blueprint-diagrams.md`
 - **Ask the owner for a credential, not for access.** Work out the smallest
   thing that unblocks the work. It is nearly always a key or a grant they can
   withdraw, not a seat beside them.
